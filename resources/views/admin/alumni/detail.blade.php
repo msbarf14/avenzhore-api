@@ -24,20 +24,8 @@
       </div>
   </div>
     <div class="row justify-content-center">
-        <div class="col-4">
-            {{-- <div class="card">
-                <div class="card-body">
-                    <img src="{{$alumni->picture}}" class="img-thumbnail">
-                </div>
-            </div> --}}
-            <h3>Lokasi</h3>
-            <div class="card">
-              <div>
-                <div id="map" style="height: 30vh;"></div>
-              </div>
-            </div>
-        </div>
-        <div class="col-8">
+        
+        <div class="col-12 col-lg-8">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-cener">
@@ -59,6 +47,35 @@
                         <h4 class="font-bold">{{$gender == 'male' ? 'Laki-laki' : 'Perempuan'}}</h4>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-muted">Sosial media</p>
+                    <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Social Media</button>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <p class="text-muted">Kontak</p>
+                    <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Kontak</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p class="text-muted">Alamat</p>
+                    <p class="font-bold">Alamat belum terisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <h3>Lokasi</h3>
+            <div class="card">
+              <div>
+                <div id="map" style="height: 40vh;"></div>
+              </div>
             </div>
         </div>
     </div>
