@@ -31,6 +31,9 @@ Route::group(['prefix' => 'home', 'middleware'=> 'auth', 'namespace' => 'WEB'], 
       // contact
       Route::post('/contact/store/{id}', "ContactController@store")->name('alumni.contact.store');
       Route::post('/contact/destroy/{contact:id}', "ContactController@destroy")->name('alumni.contact.destroy');
+      // address
+      Route::get('/address/create/{alumniId}', "AddressController@create")->name("alumni.address.create");
+      Route::post('/address/store', "AddressController@store")->name("alumni.address.store");
 
    });
 
