@@ -31,6 +31,7 @@ class AlumniController extends Controller
     }
 
     public function detail(Member\Member $member) {
-        return view('admin.alumni.detail', $member);
+        $contact = $member->contact;
+        return view('admin.alumni.detail', compact('member', 'contact'));
     }
 }

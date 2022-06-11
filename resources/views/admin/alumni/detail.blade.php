@@ -31,20 +31,20 @@
                     <div class="d-flex justify-content-between align-items-cener">
 
                         <h3 class="text-muted">Data diri alumni</h3>
-                        <h3 class="text-primary">{{$gender == 'male' ? 'Avenzhore 39' : 'Avrealzoixia 25'}}</h3>
+                        <h3 class="text-primary">{{$member->gender == 'male' ? 'Avenzhore 39' : 'Avrealzoixia 25'}}</h3>
                     </div>
                     <hr>
                     <div>
                         <label class="text-sm text-secondary">Nama Lengkap</label>
-                        <h4 class="font-bold">{{$full_name}}</h4>
+                        <h4 class="font-bold">{{$member->full_name}}</h4>
                     </div>
                     <div>
                         <label class="text-sm text-secondary">Tempat & Tanggal Lahir</label>
-                        <h4 class="font-bold">{{$born_place}}, {{$born_date}}</h4>
+                        <h4 class="font-bold">{{$member->born_place}}, {{$member->born_date}}</h4>
                     </div>
                     <div>
                         <label class="text-sm text-secondary">Jenis Kelamin</label>
-                        <h4 class="font-bold">{{$gender == 'male' ? 'Laki-laki' : 'Perempuan'}}</h4>
+                        <h4 class="font-bold">{{$member->gender == 'male' ? 'Laki-laki' : 'Perempuan'}}</h4>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,14 @@
             <div class="card">
                 <div class="card-body">
                     <p class="text-muted">Sosial media</p>
-                    <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Social Media</button>
+                    <ul class="list-group">
+                        @foreach ($member->contact as $item)
+                            <li class="list-group-item d-flex justify-content-between"><span>{{$item->type}}</span> <span>{{$item->field}}</span></li>
+                        @endforeach
+                    </ul>
+                    @if ($member->contact->count() == 0)
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Social Media</button>
+                    @endif
                 </div>
                 <hr>
                 <div class="card-body">
