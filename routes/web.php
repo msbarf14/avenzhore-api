@@ -28,25 +28,12 @@ Route::group(['prefix' => 'home', 'middleware'=> 'auth', 'namespace' => 'WEB'], 
       Route::get('/', "AlumniController@index")->name('alumni');
       Route::post('/store', "AlumniController@store")->name('alumni.store');
       Route::get('/detail/{member:id}', "AlumniController@detail")->name('alumni.detail');
-      // Route::get('/create', "AlumniController@create")->name('alumni.create');
-      // Route::post('/', "AlumniController@store")->name('alumni.store');
-      // Route::get('/destroy/{id}', "AlumniController@destroy")->name('alumni.destroy');
-      // Route::get('/edit/{id}', "AlumniController@edit")->name('alumni.edit');
-      // Route::PUT('/update/{id}', "AlumniController@update")->name('alumni.update');
-      // Route::get('/detail/{id}', "AlumniController@detail")->name('alumni.detail');
+      // contact
+      Route::post('/contact/store/{id}', "ContactController@store")->name('alumni.contact.store');
+      Route::post('/contact/destroy/{contact:id}', "ContactController@destroy")->name('alumni.contact.destroy');
 
    });
-   // OLD -> REMOVE SOON
-   // Route::group(['prefix' => 'alumni'], function () {
-   //    Route::get('/', "AlumniController@index")->name('alumni');
-   //    Route::get('/create', "AlumniController@create")->name('alumni.create');
-   //    Route::post('/', "AlumniController@store")->name('alumni.store');
-   //    Route::get('/destroy/{id}', "AlumniController@destroy")->name('alumni.destroy');
-   //    Route::get('/edit/{id}', "AlumniController@edit")->name('alumni.edit');
-   //    Route::PUT('/update/{id}', "AlumniController@update")->name('alumni.update');
-   //    Route::get('/detail/{id}', "AlumniController@detail")->name('alumni.detail');
 
-   // });
    // masyayikh / teacher
    Route::group(['prefix' => 'teacher'], function () {
       Route::get('/', "TeacherController@index")->name('teacher');

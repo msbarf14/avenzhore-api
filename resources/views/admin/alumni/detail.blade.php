@@ -29,7 +29,6 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-cener">
-
                         <h3 class="text-muted">Data diri alumni</h3>
                         <h3 class="text-primary">{{$member->gender == 'male' ? 'Avenzhore 39' : 'Avrealzoixia 25'}}</h3>
                     </div>
@@ -52,14 +51,29 @@
         <div class="col-12 col-lg-4">
             <div class="card">
                 <div class="card-body">
-                    <p class="text-muted">Sosial media</p>
+                    <div class="d-flex  justify-content-between">
+                        <p class="text-muted">Sosial media</p>
+                        @if ($member->contact->count() > 0)
+                            <p class="text-primary" data-toggle="modal" data-target="#modalContact">Tambahkan</p>
+                        @endif
+                    </div>
                     <ul class="list-group">
                         @foreach ($member->contact as $item)
-                            <li class="list-group-item d-flex justify-content-between"><span>{{$item->type}}</span> <span>{{$item->field}}</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span>{{$item->type}}</span>
+                                <span class="text-truncate">{{$item->field}}</span>
+                                <form action="{{route('alumni.contact.destroy', $item->id)}}" method="POST">
+                                        @csrf
+                                        @method("POST")
+                                    <button type="submit" class="btn btn-link">
+                                        <i class="fa fa-trash text-danger"></i>
+                                    </button>
+                                </form> 
+                            </li>
                         @endforeach
                     </ul>
                     @if ($member->contact->count() == 0)
-                        <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Social Media</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-block mt-4" data-toggle="modal" data-target="#modalContact"> Tambahkan Social Media</button>
                     @endif
                 </div>
                 <hr>
@@ -87,6 +101,9 @@
         </div>
     </div>
 </div>
+
+@include('admin.alumni.partials.modalContact')
+
 @endsection
 
 @push('script')
@@ -107,7 +124,7 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    L.marker([lat, lang]).addTo(map)
+    // L.marker([lat, lang]).addTo(map)
     // .bindPopup(addrs);
 </script>
 @endpush
