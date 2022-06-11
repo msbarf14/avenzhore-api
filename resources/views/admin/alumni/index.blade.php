@@ -35,7 +35,7 @@
                             <th >#</th>
                             <th >Nama Lengkap</th>
                             <th >TTL</th>
-                            {{-- <th  class="text-center">Opsi</th> --}}
+                            <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,16 +44,10 @@
                             <th scope="row">{{++$key}}</th>
                             <td>{{$item->full_name}}</td>
                             <td>{{$item->born_place}}, {{$item->born_date}}</td>
-                            {{-- <td class="text-center">
-                                <form action="{{route('alumni.destroy', $item->id)}}" class="btn-group">
-                                    <button type="submit" class="btn btn-danger btn-sm">
-                                        Hapus
-                                    </button>
-                                    <a href="{{route('alumni.edit', $item->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{route('alumni.detail', $item->id)}}"
-                                        class="btn btn-warning btn-sm">Detail</a>
-                                </form>
-                            </td> --}}
+                            <td class="text-center">
+                                <a href="{{route('alumni.detail', $item->id)}}"
+                                    class="btn btn-warning btn-sm">Detail</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

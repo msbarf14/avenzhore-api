@@ -20,7 +20,6 @@ class AlumniController extends Controller
     }
 
     public function store(Request $request) {
-
         $request->validate([
             'full_name' => 'required',
             'born_place' => 'required',
@@ -29,5 +28,9 @@ class AlumniController extends Controller
         ]);
         Member\Member::create($request->all());
         return redirect()->back();
+    }
+
+    public function detail(Member\Member $member) {
+        return view('admin.alumni.detail', $member);
     }
 }

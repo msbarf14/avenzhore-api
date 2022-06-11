@@ -27,6 +27,7 @@ Route::group(['prefix' => 'home', 'middleware'=> 'auth', 'namespace' => 'WEB'], 
    Route::group(['prefix' => 'alumni', 'namespace' => 'Data'], function () {
       Route::get('/', "AlumniController@index")->name('alumni');
       Route::post('/store', "AlumniController@store")->name('alumni.store');
+      Route::get('/detail/{member:id}', "AlumniController@detail")->name('alumni.detail');
       // Route::get('/create', "AlumniController@create")->name('alumni.create');
       // Route::post('/', "AlumniController@store")->name('alumni.store');
       // Route::get('/destroy/{id}', "AlumniController@destroy")->name('alumni.destroy');
