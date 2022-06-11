@@ -52,7 +52,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex  justify-content-between">
-                        <p class="text-muted">Sosial media</p>
+                        <p class="text-muted">Kontak & Sosmed</p>
                         @if ($member->contact->count() > 0)
                             <p class="text-primary" data-toggle="modal" data-target="#modalContact">Tambahkan</p>
                         @endif
@@ -75,11 +75,6 @@
                     @if ($member->contact->count() == 0)
                         <button type="button" class="btn btn-outline-primary btn-sm btn-block mt-4" data-toggle="modal" data-target="#modalContact"> Tambahkan Social Media</button>
                     @endif
-                </div>
-                <hr>
-                <div class="card-body">
-                    <p class="text-muted">Kontak</p>
-                    <button type="button" class="btn btn-outline-primary btn-sm btn-block "> Tambahkan Kontak</button>
                 </div>
             </div>
         </div>
